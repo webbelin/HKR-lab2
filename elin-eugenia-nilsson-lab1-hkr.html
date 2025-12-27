@@ -86,12 +86,12 @@
                     <input type="text" name="firstName" placeholder="Förnamn">
                     <input type="text" name="lastName" placeholder="Efternamn">
                     <input type="email" name="email" placeholder="E-post">
-                    <input list="subjectsList" placeholder="Ämne">
-                    <datalist id="subjectsList">
-                        <option value="Jobb">
-                        <option value="Skola">
-                        <option value="Annat">
-                    </datalist>
+                    <select name="subjects" id="subjectsList" placeholder="Välj ämne">
+                        <option value="" disabled selected>Välj ämne</option>
+                        <option value="jobb">Jobb</option>
+                        <option value="skola">Skola</option>
+                        <option value="annat">Annat</option>
+                    </select>
                     <textarea type="text" rows="6" cols="30" maxlength="50" placeholder="Meddelande"></textarea>
                     <input class="button" type="submit" name="form" value="Skicka">
                 </form>
