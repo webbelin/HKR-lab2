@@ -31,3 +31,15 @@ function validateMessage(){
         console.log('ej godkänt')
     }
 }
+
+function showError(){
+
+}
+
+function clearError(){
+
+}
+
+function clearForm(){
+    document.getElementById('contactForm').reset();
+}
