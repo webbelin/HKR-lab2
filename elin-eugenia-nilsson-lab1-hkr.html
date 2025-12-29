@@ -83,10 +83,10 @@
                 <img alt="Photo of Elin Nilsson" src="images/elin-nilsson.png" alt="Image of Elin Nilsson">
                 <form method="get" action="mailto:elin_eugenia.nilsson0168@stud.hkr.se">
                     <h3>Email me!</h3>
-                    <input type="text" name="firstName" placeholder="Förnamn" id="firstName" required>
-                    <input type="text" name="lastName" placeholder="Efternamn" id="lastName" required>
-                    <input type="email" name="email" placeholder="E-post" id="email" required>
-                    <select name="subjects" id="subjectsList" placeholder="Välj ämne" required>
+                    <input type="text" name="firstName" placeholder="Förnamn" id="firstName" >
+                    <input type="text" name="lastName" placeholder="Efternamn" id="lastName" >
+                    <input type="email" name="email" placeholder="E-post" id="email" >
+                    <select name="subjects" id="subjectsList" placeholder="Välj ämne" >
                         <option value="" disabled selected>Välj ämne</option>
                         <option value="jobb">Jobb</option>
                         <option value="skola">Skola</option>
@@ -94,7 +94,7 @@
                     </select>
                     <textarea type="text" rows="6" cols="30" maxlength="50" id="message" placeholder="Meddelande" required></textarea>
                     <input type="reset" value="Rensa fält">
-                    <input class="button" type="submit" name="form" value="Skicka" onclick="validateEmail()">
+                    <input class="button" type="submit" name="form" value="Skicka" onclick="validateMessage()">
                 </form>
             </div>
         </aside>

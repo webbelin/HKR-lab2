@@ -23,3 +23,11 @@ function validateEmail(){
         console.log('Dåligt')
     }
 }   
+
+function validateMessage(){
+    if(message.value.length > 3){
+        console.log('Godkänt medd')
+    } else {
+        console.log('ej godkänt')
+    }
+}
