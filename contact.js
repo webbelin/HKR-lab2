@@ -29,11 +29,13 @@ function validateMessage(){
         console.log('Godkänt medd')
     } else {
         console.log('ej godkänt')
+        const text = 'textmeddelande';
+        showError(text)
     }
 }
 
-function showError(){
-
+function showError(text){
+    console.log('Här är: ', text);
 }
 
 function clearError(){
