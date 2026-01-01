@@ -84,21 +84,26 @@
                 <form method="get" action="mailto:elin_eugenia.nilsson0168@stud.hkr.se" id="contactForm">
                     <h3>Email me!</h3>
                     <input type="text" name="firstName" placeholder="Förnamn" id="firstName" >
-                    <p id="errorName"></p>
+                    <p id="errorMessage"></p>
 
                     <input type="text" name="lastName" placeholder="Efternamn" id="lastName" >
-                    <p id="errorName"></p>
+                    <p class="errorMessage"></p>
 
                     <input type="email" name="email" placeholder="E-post" id="email" >
+                    <p class="errorMessage"></p>
+
                     <select name="subjects" id="subjectsList" placeholder="Välj ämne" >
                         <option value="" disabled selected>Välj ämne</option>
                         <option value="jobb">Jobb</option>
                         <option value="skola">Skola</option>
                         <option value="annat">Annat</option>
                     </select>
+
                     <textarea type="text" rows="6" cols="30" maxlength="50" id="message" placeholder="Meddelande" required></textarea>
+                    <p class="errorMessage" id="counterText"></p>
+                    
                     <input type="reset" value="Rensa fält">
-                    <input class="button" type="submit" name="form" value="Skicka" onclick="validateMessage()">
+                    <input class="button" type="submit" name="form" value="Skicka" onclick="validateEmail()">
                 </form>
             </div>
         </aside>
