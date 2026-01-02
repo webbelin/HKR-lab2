@@ -214,3 +214,12 @@ input[type=submit]{
         min-width: 500px;
     };
 }
+
+
+.text-color{
+    color: red;
+} 
+
+.text-color.aaa{
+    color: green;
+}

@@ -9,7 +9,9 @@ message.addEventListener('keyup', function(){
     let counter = this.value.length;
     document.getElementById('counterText').textContent = counter;
 
-    if(counter == 20){
+    if(counter >= 20){
+            document.getElementById('counterText').classList.add('aaa');
+
         validateMessage();
     }
 });
