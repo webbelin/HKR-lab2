@@ -19,7 +19,9 @@ message.addEventListener('keyup', function(){
 
 /* Submit */
 form.addEventListener('submit', function(){
-    console.log('Hej')
+    validateName();
+    validateEmail();
+    validateMessage();
 })
 
 
@@ -33,6 +35,7 @@ function validateName(){
         console.log('Bra');
     } else {
         const text = 'Kontrollera att namnet är rättstavat.';
+        console.log(text);
         showError(text);
     }
 }   
@@ -42,6 +45,7 @@ function validateEmail(){
         console.log('Bra');
     } else {
         const text = 'Kontrollera email..';
+         console.log(text);
         showError(text);
     }
 }   
@@ -51,6 +55,7 @@ function validateMessage(){
         console.log('Godkänt medd')
     } else {
         const text = 'Meddelandet måste innehålla minst 20 tecken.';
+         console.log(text);
         showError(text);
     }
 }
