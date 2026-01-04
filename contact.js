@@ -3,6 +3,7 @@ const lastName = document.getElementById('lastName');
 const email = document.getElementById('email');
 const subjectsList = document.getElementById('subjectsList');
 const message = document.getElementById('message');
+const form = document.getElementById('contactForm');
 
 /* Message counter */
 message.addEventListener('keyup', function(){
@@ -15,6 +16,13 @@ message.addEventListener('keyup', function(){
         validateMessage();
     }
 });
+
+/* Submit */
+form.addEventListener('submit', function(){
+    console.log('Hej')
+})
+
+
 
 const onlyLettersRegex = /^[A-Za-z]+$/;
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
