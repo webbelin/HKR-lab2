@@ -28,7 +28,7 @@ textarea.valid {
     opacity: 0;
     font-size: smaller;
     color: #dc3545;
-    transition: 0.3s all ease-in-out;
+    transition: 0.5s all ease-in-out;
 }
 .errorMessage.visible{
     opacity: 1;
@@ -37,6 +37,7 @@ textarea.valid {
 /* Character counter message field */
 .text-color{
     color: #dc3545;
+    opacity: 1;
 } 
 
 .text-color.color-change{

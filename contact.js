@@ -7,9 +7,9 @@ const message = document.getElementById('message');
 
 /* Message character counter */
 message.addEventListener('keyup', function(){
-    let counter = this.value.length;
-    document.getElementById('counterText').textContent = counter + ' / 20 characters';
-
+        let counter = this.value.length;
+        document.getElementById('counterText').textContent = counter + ' / 20 characters';
+        document.getElementById('counterText').classList.remove('color-change');
     if(counter >= 20){
         document.getElementById('counterText').classList.add('color-change');
     }
@@ -19,16 +19,22 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    validateName();
-    //validateEmail();
-    validateMessage();
+    if(validateName() && validateEmail() && validateMessage()){
 
-    // Success message
-    document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
+        // Success message
+        document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
 
-    setTimeout(function(){
-        document.getElementById('successMessage').innerText = '';
-    }, 3000); 
+        setTimeout(function(){
+            document.getElementById('successMessage').innerText = '';
+        }, 3000); 
+
+        clearForm();
+
+    } else {
+        console.log('false');
+        
+    }
+
 });
 
 const onlyLettersRegex = /^[A-Za-z]+$/;
@@ -37,43 +43,54 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 /* Validate fields */
 function validateName(){
     if(onlyLettersRegex.test(firstName.value)){
-        console.log('Bra');
         firstName.classList.add('valid');
         firstName.classList.remove('error');
+                const text = '';
+                showError(text);
+                console.log('Valid name');
+                return true;
+
     } else {
-        const text = 'The name contains incorrect characters.';
         firstName.classList.add('error');
         firstName.classList.remove('valid');
+        const text = 'The name contains incorrect characters.';
         showError(text);
+        console.log('Invalid name');
+        return false;
     }
-    return;
+         
 }   
 
 function validateEmail(){
  if(emailRegex.test(email.value)){
         email.classList.add('valid');
         email.classList.remove('error');
+         return true;
     } else {
-        console.log('hej')
         email.classList.add('error');
         email.classList.remove('valid');
         const text = 'Check that the email is correct.';
         showError(text);
+         return false;
     }
-    console.log('validate Emeil')
+
 }   
 
 function validateMessage(){
     if(message.value.length >= 20){
         message.classList.add('valid');
         message.classList.remove('error');
+         console.log('Valid message');
+         return true;
     } else {
         message.classList.add('error');
         message.classList.remove('valid');
         const text = 'The message must contain at least 20 characters.';
         showError(text);
+         console.log('Invalid message');
+         return false;
     }
-    return;
+
 }
 
 function showError(text){
