@@ -19,9 +19,9 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    //validateName();
-    validateEmail();
-    //validateMessage();
+    validateName();
+    //validateEmail();
+    validateMessage();
 
     // Success message
     document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
@@ -39,11 +39,14 @@ function validateName(){
     if(onlyLettersRegex.test(firstName.value)){
         console.log('Bra');
         firstName.classList.add('valid');
+        firstName.classList.remove('error');
     } else {
         const text = 'The name contains incorrect characters.';
         firstName.classList.add('error');
+        firstName.classList.remove('valid');
         showError(text);
     }
+    return;
 }   
 
 function validateEmail(){
@@ -63,11 +66,14 @@ function validateEmail(){
 function validateMessage(){
     if(message.value.length >= 20){
         message.classList.add('valid');
+        message.classList.remove('error');
     } else {
         message.classList.add('error');
+        message.classList.remove('valid');
         const text = 'The message must contain at least 20 characters.';
         showError(text);
     }
+    return;
 }
 
 function showError(text){
