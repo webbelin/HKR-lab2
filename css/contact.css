@@ -23,12 +23,15 @@ textarea.valid {
     border-color: green;
 }
 
-/* Error message email */
+/* Error messages */
 .errorMessage{
     opacity: 0;
+}
+.errorMessage,
+#noSuccessMessage{
     font-size: smaller;
     color: #dc3545;
-    transition: 0.5s all ease-in-out;
+    transition: 1s all ease-in-out;
 }
 .errorMessage.visible{
     opacity: 1;

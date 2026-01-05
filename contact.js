@@ -32,7 +32,7 @@ form.addEventListener('submit', function(event){
 
     } else {
         console.log('false');
-        
+        document.getElementById('noSuccessMessage').innerText = 'Check all fields';
     }
 
 });
