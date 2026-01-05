@@ -85,16 +85,16 @@
                 <form method="get" action="mailto:elin_eugenia.nilsson0168@stud.hkr.se" id="contactForm">
                     <h3>Email me!</h3>
 
-                    <label for="firstName">First name</label>
-                    <input type="text" name="firstName" id="firstName" class="">
+                    <label for="firstName">First name*</label>
+                    <input type="text" name="firstName" id="firstName" class="" required >
                     <p class="errorMessage"></p>
 
-                    <label for="lastName">Last name</label>
-                    <input type="text" name="lastName" id="lastName" class="">
+                    <label for="lastName">Last name*</label>
+                    <input type="text" name="lastName" id="lastName" class="" required >
                     <p class="errorMessage"></p>
 
-                    <label for="email">E-mail</label>
-                    <input type="text" name="email" id="email" class="">
+                    <label for="email">E-mail*</label>
+                    <input type="text" name="email" id="email" class="" required >
                     <p class="errorMessage"></p>
 
                     <label for="subjectsList">Subject</label>
@@ -105,8 +105,8 @@
                         <option value="other">Other</option>
                     </select>
 
-                    <label for="message">Message</label>
-                    <textarea type="text" rows="6" cols="30" id="message" class=""></textarea>
+                    <label for="message">Message*</label>
+                    <textarea type="text" rows="6" cols="30" id="message" class="" required></textarea>
                     <p class="errorMessage text-color" id="counterText"></p>
                     
                     <div>
