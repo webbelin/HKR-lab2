@@ -19,9 +19,9 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    validateName();
-   // validateEmail();
-   // validateMessage();
+    //validateName();
+    validateEmail();
+    //validateMessage();
 
     // Success message
     document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
@@ -47,13 +47,17 @@ function validateName(){
 }   
 
 function validateEmail(){
-    if(emailRegex.test(email.value)){
+ if(emailRegex.test(email.value)){
         email.classList.add('valid');
+        email.classList.remove('error');
     } else {
-        const text = 'Check that the email is correct.';
+        console.log('hej')
         email.classList.add('error');
+        email.classList.remove('valid');
+        const text = 'Check that the email is correct.';
         showError(text);
     }
+    console.log('validate Emeil')
 }   
 
 function validateMessage(){
