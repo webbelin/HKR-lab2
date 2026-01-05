@@ -26,6 +26,9 @@ form.addEventListener('submit', function(event){
     // Success message
     document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
 
+    setTimeout(function(){
+        document.getElementById('successMessage').innerText = '';
+    }, 3000); 
 });
 
 const onlyLettersRegex = /^[A-Za-z]+$/;
