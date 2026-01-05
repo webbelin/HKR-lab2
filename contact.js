@@ -19,7 +19,7 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-   // validateName();
+    validateName();
    // validateEmail();
    // validateMessage();
 
@@ -38,26 +38,30 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 function validateName(){
     if(onlyLettersRegex.test(firstName.value)){
         console.log('Bra');
+        firstName.classList.add('valid');
     } else {
-        const text = 'Kontrollera att namnet är rättstavat.';
+        const text = 'The name contains incorrect characters.';
+        firstName.classList.add('error');
         showError(text);
     }
 }   
 
 function validateEmail(){
     if(emailRegex.test(email.value)){
-        console.log('Bra');
+        email.classList.add('valid');
     } else {
-        const text = 'Kontrollera email..';
+        const text = 'Check that the email is correct.';
+        email.classList.add('error');
         showError(text);
     }
 }   
 
 function validateMessage(){
     if(message.value.length >= 20){
-        console.log('Godkänt medd')
+        message.classList.add('valid');
     } else {
-        const text = 'Meddelandet måste innehålla minst 20 tecken.';
+        message.classList.add('error');
+        const text = 'The message must contain at least 20 characters.';
         showError(text);
     }
 }
