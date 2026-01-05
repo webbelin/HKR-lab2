@@ -18,10 +18,12 @@ message.addEventListener('keyup', function(){
 });
 
 /* Submit */
-form.addEventListener('submit', function(){
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+
     validateName();
-    validateEmail();
-    validateMessage();
+   // validateEmail();
+   // validateMessage();
 })
 
 
@@ -45,7 +47,7 @@ function validateEmail(){
         console.log('Bra');
     } else {
         const text = 'Kontrollera email..';
-         console.log(text);
+        console.log(text);
         showError(text);
     }
 }   
@@ -62,7 +64,7 @@ function validateMessage(){
 
 function showError(text){
     const errorMessage = document.getElementsByClassName('errorMessage');
-    errorMessage.innerText = text;
+    return errorMessage.innerText = text;
 }
 
 function clearForm(){
