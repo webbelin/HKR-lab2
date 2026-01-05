@@ -22,8 +22,8 @@ form.addEventListener('submit', function(event){
     event.preventDefault();
 
     validateName();
-   // validateEmail();
-   // validateMessage();
+    validateEmail();
+    validateMessage();
 })
 
 
@@ -37,7 +37,6 @@ function validateName(){
         console.log('Bra');
     } else {
         const text = 'Kontrollera att namnet är rättstavat.';
-        console.log(text);
         showError(text);
     }
 }   
@@ -47,7 +46,6 @@ function validateEmail(){
         console.log('Bra');
     } else {
         const text = 'Kontrollera email..';
-        console.log(text);
         showError(text);
     }
 }   
@@ -57,14 +55,14 @@ function validateMessage(){
         console.log('Godkänt medd')
     } else {
         const text = 'Meddelandet måste innehålla minst 20 tecken.';
-         console.log(text);
         showError(text);
     }
 }
 
 function showError(text){
-    const errorMessage = document.getElementsByClassName('errorMessage');
-    return errorMessage.innerText = text;
+    const errorMessage = document.querySelector('.errorMessage');
+    errorMessage.innerText = text;
+    //console.log('showError: ', text);
 }
 
 function clearForm(){
