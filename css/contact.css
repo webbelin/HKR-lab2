@@ -2,6 +2,7 @@ input[type=text],
 input[type=email], 
 textarea {
     border: 2px solid #ccc;
+    outline: none;
 }
 
 input[type=text]:focus,
@@ -13,11 +14,31 @@ textarea:focus {
 input[type=text].error, 
 input[type=email].error, 
 textarea.error{
-    border-color: red;
+    border-color: #dc3545;
 }
 
 input[type=text].valid,
 input[type=email].valid, 
 textarea.valid {
     border-color: green;
+}
+
+/* Error message email */
+.errorMessage{
+    opacity: 0;
+    font-size: smaller;
+    color: #dc3545;
+    transition: 0.3s all ease-in-out;
+}
+.errorMessage.visible{
+    opacity: 1;
+}
+
+/* Character counter message field */
+.text-color{
+    color: #dc3545;
+} 
+
+.text-color.color-change{
+    color: green;
 }

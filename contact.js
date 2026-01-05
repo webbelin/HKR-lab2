@@ -72,6 +72,7 @@ function validateMessage(){
 
 function showError(text){
     const errorMessage = document.querySelector('.errorMessage');
+    errorMessage.classList.add('visible');
     errorMessage.innerText = text;
     //console.log('showError: ', text);
 }
