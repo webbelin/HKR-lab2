@@ -1,19 +1,17 @@
+const form = document.getElementById('contactForm');
 const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
 const email = document.getElementById('email');
 const subjectsList = document.getElementById('subjectsList');
 const message = document.getElementById('message');
-const form = document.getElementById('contactForm');
 
 /* Message counter */
 message.addEventListener('keyup', function(){
     let counter = this.value.length;
-    document.getElementById('counterText').textContent = counter;
+    document.getElementById('counterText').textContent = counter + ' / 20 characters';
 
     if(counter >= 20){
-            document.getElementById('counterText').classList.add('aaa');
-
-        validateMessage();
+        document.getElementById('counterText').classList.add('color-change');
     }
 });
 
@@ -51,7 +49,7 @@ function validateEmail(){
 }   
 
 function validateMessage(){
-    if(message.value.length > 3){
+    if(message.value.length >= 20){
         console.log('Godkänt medd')
     } else {
         const text = 'Meddelandet måste innehålla minst 20 tecken.';
