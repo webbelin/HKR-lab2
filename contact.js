@@ -5,7 +5,7 @@ const email = document.getElementById('email');
 const subjectsList = document.getElementById('subjectsList');
 const message = document.getElementById('message');
 
-/* Message counter */
+/* Message character counter */
 message.addEventListener('keyup', function(){
     let counter = this.value.length;
     document.getElementById('counterText').textContent = counter + ' / 20 characters';
@@ -19,12 +19,14 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    validateName();
-    validateEmail();
-    validateMessage();
-})
+   // validateName();
+   // validateEmail();
+   // validateMessage();
 
+    // Success message
+    document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
 
+});
 
 const onlyLettersRegex = /^[A-Za-z]+$/;
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
