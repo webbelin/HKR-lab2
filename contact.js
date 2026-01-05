@@ -51,23 +51,24 @@ function validateName(){
         firstName.classList.add('valid');
         firstName.classList.remove('error');
         const text = '';
-        showError(text);
-        console.log('Valid name');
-        return true;
+        console.log(text);  
+        return true;    
     } else {
         firstName.classList.add('error');
         firstName.classList.remove('valid');
         const text = 'The name contains incorrect characters.';
         showError(text);
-        console.log('Invalid name');
-        return false;
-    }    
-}   
+        return false;   
+    }
+
+}  
 
 function validateEmail(){
  if(emailRegex.test(email.value)){
         email.classList.add('valid');
         email.classList.remove('error');
+        const text = '';
+        showError(text);
         return true;
     } else {
         email.classList.add('error');
@@ -99,6 +100,12 @@ function showError(text){
     errorMessage.classList.add('visible');
     errorMessage.innerText = text;
     //console.log('showError: ', text);
+    
+  //  const place = document.getElementById(errorMessagePlace);
+    //const newDiv = document.createElement("div");
+    //newDiv.innerText = text;
+    //place.after(newDiv.innerText = text);
+
 }
 
 function clearForm(){
