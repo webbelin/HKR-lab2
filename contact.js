@@ -53,15 +53,12 @@ function validateName(){
     firstName.classList.toggle('error');   
 
     if(onlyLettersRegex.test(firstName.value)){
-        //const text = ''; 
         showError('');
         return true;    
     } else {
-        //const text = 'The name contains incorrect characters.';
-        showError('The name contains incorrect characters!!!.');
+        showError('The name contains incorrect characters.');
         return false;   
     }
-
 }  
 
 function validateEmail(){
