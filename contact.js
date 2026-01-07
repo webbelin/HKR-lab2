@@ -24,7 +24,7 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    if(validateName() //&& validateEmail() && validateMessage()
+    if(validateName() && validateEmail() && validateMessage()
     ){
 
         document.getElementById('noSuccessMessage').innerText = '';
@@ -59,38 +59,37 @@ function validateName(){
         showError('The name contains incorrect characters.');
         return false;   
     }
+
 }  
 
 function validateEmail(){
- if(emailRegex.test(email.value)){
-        email.classList.add('valid');
-        email.classList.remove('error');
-        const text = '';
-        showError(text);
+
+    email.classList.toggle('valid');
+    email.classList.toggle('error');
+
+    if(emailRegex.test(email.value)){
+        showError('');
         return true;
     } else {
-        email.classList.add('error');
-        email.classList.remove('valid');
-        const text = 'Check that the email is correct.';
-        showError(text);
+        showError('Check that the email is correct.');
         return false;
     }
+
 }   
 
 function validateMessage(){
+
+    message.classList.toggle('valid');
+    message.classList.toggle('error');
+
     if(message.value.length >= 20){
-        message.classList.add('valid');
-        message.classList.remove('error');
-        console.log('Valid message');
+        showError('');
         return true;
     } else {
-        message.classList.add('error');
-        message.classList.remove('valid');
-        const text = 'The message must contain at least 20 characters.';
-        showError(text);
-        console.log('Invalid message');
+        showError('The message must contain at least 20 characters.');
         return false;
     }
+
 }
 
 function showError(text){
