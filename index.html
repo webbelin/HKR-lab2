@@ -83,7 +83,10 @@
             <div class="align-center">
                 <img alt="Photo of Elin Nilsson" src="images/elin-nilsson.png" alt="Image of Elin Nilsson">
                 <form method="get" action="mailto:elin_eugenia.nilsson0168@stud.hkr.se" id="contactForm">
-                    <h3>Email me!</h3>
+                    <div class="header">
+                        <h3>Contact me</h3>
+                        <small>*Required fields</small>
+                    </div>
 
                     <label for="firstName">First name*</label>
                     <input type="text" name="firstName" id="firstName" class="" required >
@@ -110,7 +113,7 @@
                     <p class="errorMessage text-color" id="counterText"></p>
                     
                     <div>
-                        <input type="reset" value="Clear all">
+                        <input type="reset" value="Clear all fields">
                         <input class="button" type="submit" name="form" value="Send">
                         <p id="successMessage"></p>
                         <p id="noSuccessMessage"></p>
@@ -138,6 +141,6 @@
     </small>
 </footer>
 
-<script src="contact.js"></script>
+<script src="js/contact.js"></script>
 </body>
 </html>
