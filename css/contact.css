@@ -5,8 +5,7 @@ textarea {
     outline: none;
 }
 
-input[type=text]:focus,
-input[type=email]:focus, 
+input:focus, 
 textarea:focus {
     border-color: blue;
 }

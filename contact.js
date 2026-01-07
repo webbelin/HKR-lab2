@@ -24,7 +24,8 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    if(validateName() && validateEmail() && validateMessage()){
+    if(validateName() //&& validateEmail() && validateMessage()
+    ){
 
         document.getElementById('noSuccessMessage').innerText = '';
 
@@ -35,7 +36,7 @@ form.addEventListener('submit', function(event){
             document.getElementById('successMessage').innerText = '';
         }, 3000); 
 
-        clearForm();
+       // clearForm();
 
     } else {
         console.log('false');
@@ -47,17 +48,17 @@ form.addEventListener('submit', function(event){
 /* ******************************* FUNCTIONS ******************************* */
 
 function validateName(){
+    
+    firstName.classList.toggle('valid');
+    firstName.classList.toggle('error');   
+
     if(onlyLettersRegex.test(firstName.value)){
-        firstName.classList.add('valid');
-        firstName.classList.remove('error');
-        const text = '';
-        console.log(text);  
+        //const text = ''; 
+        showError('');
         return true;    
     } else {
-        firstName.classList.add('error');
-        firstName.classList.remove('valid');
-        const text = 'The name contains incorrect characters.';
-        showError(text);
+        //const text = 'The name contains incorrect characters.';
+        showError('The name contains incorrect characters!!!.');
         return false;   
     }
 
