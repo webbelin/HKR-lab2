@@ -26,8 +26,9 @@ form.addEventListener('submit', function(event){
 
     validateName();
     validateEmail();
-/*
-    if(validateName() && validateEmail() //&& validateMessage()
+    validateMessage();
+
+    if(validateName() && validateEmail() && validateMessage()
     ){
 
         document.getElementById('noSuccessMessage').innerText = '';
@@ -44,7 +45,7 @@ form.addEventListener('submit', function(event){
     } else {
         console.log('false');
         document.getElementById('noSuccessMessage').innerText = 'Check all fields';
-    }*/
+    }
 });
 
 
@@ -59,7 +60,6 @@ function validateName(){
         clearError(firstName.id, '');
         return true;    
     } else {
-        console.log('Validate name is run')
         showError(firstName.id,'The name contains incorrect characters.');
         return false;   
     }
@@ -75,42 +75,31 @@ function validateEmail(){
         clearError(email.id, '');
         return true;
     } else {
-        console.log('Validate email is run')
         showError(email.id,'Check that the email is correct.');
         return false;
     }
 
 }   
-/*
+
 function validateMessage(){
 
     message.classList.toggle('valid');
     message.classList.toggle('error');
 
     if(message.value.length >= 20){
-        showError('');
+        clearError(message.id, '');
         return true;
     } else {
-        showError('The message must contain at least 20 characters.');
+        showError(message.id, 'The message must contain at least 20 characters.');
         return false;
     }
 
-}*/
+}
 
 function showError(id, string){
     const errorMessage = document.getElementById(`${id}-error`)
     errorMessage.classList.add('visible');
     errorMessage.innerText = string;
-console.log('=>', errorMessage)
-
-
-    //console.log('showError: ', text);
-    
-  //  const place = document.getElementById(errorMessagePlace);
-    //const newDiv = document.createElement("div");
-    //newDiv.innerText = text;
-    //place.after(newDiv.innerText = text);
-
 }
 
 function clearError(id, string){
