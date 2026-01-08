@@ -7,7 +7,7 @@ const message = document.getElementById('message');
 
 /* Regex */
 const onlyLettersRegex = /^[A-Za-z]+$/;
-const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 /* Message character counter */
 message.addEventListener('keyup', function(){
