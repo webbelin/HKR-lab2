@@ -27,8 +27,8 @@ input[type=submit]{
     border: none;
 }
 
-input.error, 
-textarea.error{
+input.invalid, 
+textarea.invalid{
     border-color: #dc3545;
 }
 

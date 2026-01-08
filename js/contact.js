@@ -40,10 +40,9 @@ form.addEventListener('submit', function(event){
             document.getElementById('successMessage').innerText = '';
         }, 3000); 
 
-       // clearForm();
+        clearForm();
 
     } else {
-        console.log('false');
         document.getElementById('noSuccessMessage').innerText = 'Check all fields';
     }
 });
@@ -55,11 +54,11 @@ function validateName(){
 
     if(onlyLettersRegex.test(firstName.value)){
         firstName.classList.add('valid');
-        firstName.classList.remove('error');        
+        firstName.classList.remove('invalid');        
         clearError(firstName.id, '');
         return true;    
     } else {
-        firstName.classList.add('error');
+        firstName.classList.add('invalid');
         firstName.classList.remove('valid');        
         showError(firstName.id,'The name contains incorrect characters.');
         return false;   
@@ -73,11 +72,11 @@ function validateEmail(){
 
     if(emailRegex.test(email.value)){
         email.classList.add('valid');
-        email.classList.remove('error');
+        email.classList.remove('invalid');
         clearError(email.id, '');
         return true;
     } else {
-        email.classList.add('error');
+        email.classList.add('invalid');
         email.classList.remove('valid');
         showError(email.id,'Check that the email is correct.');
         return false;
@@ -89,11 +88,11 @@ function validateMessage(){
 
     if(message.value.length >= 20){
         message.classList.add('valid');
-        message.classList.remove('error');
+        message.classList.remove('invalid');
         clearError(message.id, '');
         return true;
     } else {
-        message.classList.add('error');
+        message.classList.add('invalid');
         message.classList.remove('valid');
         showError(message.id, 'The message must contain at least 20 characters.');
         return false;
