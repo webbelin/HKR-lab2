@@ -27,6 +27,16 @@ input[type=submit]{
     border: none;
 }
 
+input.error, 
+textarea.error{
+    border-color: #dc3545;
+}
+
+input.valid, 
+textarea.valid {
+    border-color: green;
+}
+
 input, 
 textarea {
     border: 2px solid #ccc;
@@ -36,16 +46,6 @@ textarea {
 input:focus, 
 textarea:focus {
     border-color: blue;
-}
-
-input.error, 
-textarea.error{
-    border-color: #dc3545;
-}
-
-input.valid, 
-textarea.valid {
-    border-color: green;
 }
 
 /* Error messages */
