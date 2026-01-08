@@ -52,14 +52,15 @@ form.addEventListener('submit', function(event){
 /* ******************************* FUNCTIONS ******************************* */
 
 function validateName(){
-    
-    firstName.classList.toggle('valid');
-    firstName.classList.toggle('error');   
 
     if(onlyLettersRegex.test(firstName.value)){
+        firstName.classList.add('valid');
+        firstName.classList.remove('error');        
         clearError(firstName.id, '');
         return true;    
     } else {
+        firstName.classList.add('error');
+        firstName.classList.remove('valid');        
         showError(firstName.id,'The name contains incorrect characters.');
         return false;   
     }
@@ -68,13 +69,16 @@ function validateName(){
 
 function validateEmail(){
 
-    email.classList.toggle('valid');
-    email.classList.toggle('error');
+
 
     if(emailRegex.test(email.value)){
+        email.classList.add('valid');
+        email.classList.remove('error');
         clearError(email.id, '');
         return true;
     } else {
+        email.classList.add('error');
+        email.classList.remove('valid');
         showError(email.id,'Check that the email is correct.');
         return false;
     }
@@ -83,13 +87,14 @@ function validateEmail(){
 
 function validateMessage(){
 
-    message.classList.toggle('valid');
-    message.classList.toggle('error');
-
     if(message.value.length >= 20){
+        message.classList.add('valid');
+        message.classList.remove('error');
         clearError(message.id, '');
         return true;
     } else {
+        message.classList.add('error');
+        message.classList.remove('valid');
         showError(message.id, 'The message must contain at least 20 characters.');
         return false;
     }
