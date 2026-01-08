@@ -24,7 +24,10 @@ message.addEventListener('keyup', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
-    if(validateName() && validateEmail() && validateMessage()
+    validateName();
+    validateEmail();
+/*
+    if(validateName() && validateEmail() //&& validateMessage()
     ){
 
         document.getElementById('noSuccessMessage').innerText = '';
@@ -41,7 +44,7 @@ form.addEventListener('submit', function(event){
     } else {
         console.log('false');
         document.getElementById('noSuccessMessage').innerText = 'Check all fields';
-    }
+    }*/
 });
 
 
@@ -53,10 +56,11 @@ function validateName(){
     firstName.classList.toggle('error');   
 
     if(onlyLettersRegex.test(firstName.value)){
-        showError('');
+        clearError(firstName.id, '');
         return true;    
     } else {
-        showError('The name contains incorrect characters.');
+        console.log('Validate name is run')
+        showError(firstName.id,'The name contains incorrect characters.');
         return false;   
     }
 
@@ -68,15 +72,16 @@ function validateEmail(){
     email.classList.toggle('error');
 
     if(emailRegex.test(email.value)){
-        showError('');
+        clearError(email.id, '');
         return true;
     } else {
-        showError('Check that the email is correct.');
+        console.log('Validate email is run')
+        showError(email.id,'Check that the email is correct.');
         return false;
     }
 
 }   
-
+/*
 function validateMessage(){
 
     message.classList.toggle('valid');
@@ -90,12 +95,15 @@ function validateMessage(){
         return false;
     }
 
-}
+}*/
 
-function showError(text){
-    const errorMessage = document.querySelector('.errorMessage');
+function showError(id, string){
+    const errorMessage = document.getElementById(`${id}-error`)
     errorMessage.classList.add('visible');
-    errorMessage.innerText = text;
+    errorMessage.innerText = string;
+console.log('=>', errorMessage)
+
+
     //console.log('showError: ', text);
     
   //  const place = document.getElementById(errorMessagePlace);
@@ -103,6 +111,12 @@ function showError(text){
     //newDiv.innerText = text;
     //place.after(newDiv.innerText = text);
 
+}
+
+function clearError(id, string){
+const errorMessage = document.getElementById(`${id}-error`)
+    errorMessage.classList.remove('visible');
+    errorMessage.innerText = string;
 }
 
 function clearForm(){
