@@ -10,9 +10,9 @@ const onlyLettersRegex = /^[A-Za-z]+$/;
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 /* Message character counter */
-message.addEventListener('keyup', function(){
+message.addEventListener('input', function(){
     let counter = this.value.length;
-    document.getElementById('counterText').textContent = counter + ' / 20 characters';
+    document.getElementById('counterText').textContent = counter + ' / 200 characters';
     document.getElementById('counterText').classList.remove('color-change');
 
     if(counter >= 20){
