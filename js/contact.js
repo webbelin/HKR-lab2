@@ -23,14 +23,13 @@ message.addEventListener('keyup', function(){
 /* Submit form */
 form.addEventListener('submit', function(event){
     event.preventDefault();
-
+console.log('Before functions are run')
     validateName();
     validateEmail();
     validateMessage();
-
-    if(validateName() && validateEmail() && validateMessage()
-    ){
-
+console.log('After functions are run')
+    if(validateName() && validateEmail() && validateMessage()){
+console.log('If all are true')
         document.getElementById('noSuccessMessage').innerText = '';
 
         // Success message
@@ -43,6 +42,7 @@ form.addEventListener('submit', function(event){
         clearForm();
 
     } else {
+        console.log('If its still false')
         document.getElementById('noSuccessMessage').innerText = 'Check all fields';
     }
 });
@@ -52,28 +52,45 @@ form.addEventListener('submit', function(event){
 
 function validateName(){
 
+    let checkFirstName = false;
+    let checkLastName = false;
+
     if(onlyLettersRegex.test(firstName.value)){
         firstName.classList.add('valid');
         firstName.classList.remove('invalid');        
         clearError(firstName.id, '');
-        return true;    
+        checkFirstName = true;
     } else {
         firstName.classList.add('invalid');
         firstName.classList.remove('valid');        
-        showError(firstName.id,'The name contains incorrect characters.');
-        return false;   
+        showError(firstName.id,'First name contains incorrect characters.');
+    }
+
+    if(onlyLettersRegex.test(lastName.value)){
+        lastName.classList.add('valid');
+        lastName.classList.remove('invalid');        
+        clearError(lastName.id, '');
+        checkLastName = true;
+    } else {
+        lastName.classList.add('invalid');
+        lastName.classList.remove('valid');        
+        showError(lastName.id,'Last name contains incorrect characters.');
+    }
+
+    if(checkFirstName && checkLastName){
+        console.log('Validate name is true');
+        return true;
     }
 
 }  
 
 function validateEmail(){
 
-
-
     if(emailRegex.test(email.value)){
         email.classList.add('valid');
         email.classList.remove('invalid');
         clearError(email.id, '');
+                console.log('Validate email is true');
         return true;
     } else {
         email.classList.add('invalid');
@@ -90,6 +107,7 @@ function validateMessage(){
         message.classList.add('valid');
         message.classList.remove('invalid');
         clearError(message.id, '');
+                console.log('Validate message is true');
         return true;
     } else {
         message.classList.add('invalid');
