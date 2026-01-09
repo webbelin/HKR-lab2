@@ -23,18 +23,19 @@ message.addEventListener('keyup', function(){
 /* Submit form */
 form.addEventListener('submit', function(event){
     event.preventDefault();
-console.log('Before functions are run')
+
     validateName();
     validateEmail();
     validateMessage();
-console.log('After functions are run')
+
     if(validateName() && validateEmail() && validateMessage()){
-console.log('If all are true')
+
         document.getElementById('noSuccessMessage').innerText = '';
 
         // Success message
         document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
 
+        /* Make success message dissapear */
         setTimeout(function(){
             document.getElementById('successMessage').innerText = '';
         }, 3000); 
@@ -42,7 +43,6 @@ console.log('If all are true')
         clearForm();
 
     } else {
-        console.log('If its still false')
         document.getElementById('noSuccessMessage').innerText = 'Check all fields';
     }
 });
@@ -55,6 +55,7 @@ function validateName(){
     let checkFirstName = false;
     let checkLastName = false;
 
+    /* Check first name input field */
     if(onlyLettersRegex.test(firstName.value)){
         firstName.classList.add('valid');
         firstName.classList.remove('invalid');        
@@ -66,6 +67,7 @@ function validateName(){
         showError(firstName.id,'First name contains incorrect characters.');
     }
 
+    /* Check last name input field */
     if(onlyLettersRegex.test(lastName.value)){
         lastName.classList.add('valid');
         lastName.classList.remove('invalid');        
@@ -77,8 +79,8 @@ function validateName(){
         showError(lastName.id,'Last name contains incorrect characters.');
     }
 
+    /* Check if both input fields are valid */
     if(checkFirstName && checkLastName){
-        console.log('Validate name is true');
         return true;
     }
 
@@ -90,7 +92,6 @@ function validateEmail(){
         email.classList.add('valid');
         email.classList.remove('invalid');
         clearError(email.id, '');
-                console.log('Validate email is true');
         return true;
     } else {
         email.classList.add('invalid');
@@ -107,7 +108,6 @@ function validateMessage(){
         message.classList.add('valid');
         message.classList.remove('invalid');
         clearError(message.id, '');
-                console.log('Validate message is true');
         return true;
     } else {
         message.classList.add('invalid');
@@ -115,17 +115,16 @@ function validateMessage(){
         showError(message.id, 'The message must contain at least 20 characters.');
         return false;
     }
-
 }
 
-function showError(id, string){
+function showError(id, string){ // String set in validation functions
     const errorMessage = document.getElementById(`${id}-error`)
     errorMessage.classList.add('visible');
     errorMessage.innerText = string;
 }
 
-function clearError(id, string){
-const errorMessage = document.getElementById(`${id}-error`)
+function clearError(id, string){ // String set in validation functions
+    const errorMessage = document.getElementById(`${id}-error`)
     errorMessage.classList.remove('visible');
     errorMessage.innerText = string;
 }
