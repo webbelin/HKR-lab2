@@ -143,17 +143,17 @@ function validateMessage(){
     }
 }
 
-function showError(id, string){ // String set in validation functions
+function showError(id, string){ 
     const errorMessage = document.getElementById(`${id}-error`)
     errorMessage.classList.add('visible');
     errorMessage.innerText = string;
 }
 
-function clearError(id, string){ // String set in validation functions
+function clearError(id, string){ 
     const errorMessage = document.getElementById(`${id}-error`);
     errorMessage.classList.remove('visible');
     
-    // remove text after fade-out
+    // Remove text when faded out
     setTimeout(() => {
         errorMessage.innerText = string;
     }, 300); 
