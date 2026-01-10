@@ -15,7 +15,7 @@ message.addEventListener('input', function(){
     let counter = this.value.length;
     const counterText = document.getElementById('counterText');
 
-    counterText.textContent = counter + ' / 200 characters';
+    counterText.textContent = counter + ' / 20 characters';
     counterText.classList.remove('color-change');
 
     if(counter >= 20){
