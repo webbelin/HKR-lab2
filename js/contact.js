@@ -26,9 +26,10 @@ form.addEventListener('submit', function(event){
 
     validateName();
     validateEmail();
+    validateSubject();
     validateMessage();
 
-    if(validateName() && validateEmail() && validateMessage()){
+    if(validateName() && validateEmail() && validateSubject() && validateMessage()){
 
         document.getElementById('noSuccessMessage').innerText = '';
 
@@ -101,6 +102,24 @@ function validateEmail(){
     }
 
 }   
+
+function validateSubject(){
+
+    const subjectsList = document.getElementById('subjectsList');
+   
+    if(subjectsList.value != ''){
+        subjectsList.classList.add('valid');
+        subjectsList.classList.remove('invalid');
+        clearError(subjectsList.id, '');
+        return true;
+    } else {
+        subjectsList.classList.add('invalid');
+        subjectsList.classList.remove('valid');
+        showError(subjectsList.id, 'Please choose a subject.');
+        return false;
+    }
+
+}
 
 function validateMessage(){
 
