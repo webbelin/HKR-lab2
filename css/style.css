@@ -65,7 +65,8 @@ header h1{
     text-transform: uppercase;
     color: var(--white);
 }
-nav a{
+nav a,
+nav span{
     padding: 0.5em;
     color: var(--white);
     font-weight: bold;

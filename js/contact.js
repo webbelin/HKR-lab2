@@ -11,17 +11,21 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 /* Message character counter */
 message.addEventListener('input', function(){
+
     let counter = this.value.length;
-    document.getElementById('counterText').textContent = counter + ' / 200 characters';
-    document.getElementById('counterText').classList.remove('color-change');
+    const counterText = document.getElementById('counterText');
+
+    counterText.textContent = counter + ' / 200 characters';
+    counterText.classList.remove('color-change');
 
     if(counter >= 20){
-        document.getElementById('counterText').classList.add('color-change');
+        counterText.classList.add('color-change');
     }
 });
 
 /* Submit form */
 form.addEventListener('submit', function(event){
+
     event.preventDefault();
 
     const success = document.getElementById('successMessage');
@@ -38,7 +42,7 @@ form.addEventListener('submit', function(event){
         noSuccess.classList.remove('visible');
 
         // Success message
-        success.innerText = `Thank you ${firstName.value}! I will contact you soon!`;
+        success.innerText = `🎉 Thank you ${firstName.value}! I will contact you soon!`;
         
         /* Make success message dissapear */
         setTimeout(function(){
@@ -109,8 +113,6 @@ function validateEmail(){
 }   
 
 function validateSubject(){
-
-    const subjectsList = document.getElementById('subjectsList');
    
     if(subjectsList.value != ''){
         subjectsList.classList.add('valid');
@@ -159,5 +161,5 @@ function clearError(id, string){ // String set in validation functions
 }
 
 function clearForm(){
-    document.getElementById('contactForm').reset();
+    form.reset();
 }
