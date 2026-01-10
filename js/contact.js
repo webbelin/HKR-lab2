@@ -5,11 +5,11 @@ const email = document.getElementById('email');
 const subjectsList = document.getElementById('subjectsList');
 const message = document.getElementById('message');
 
-/* Regex */
+/* Regex - Validate name and email fields */
 const onlyLettersRegex = /^[A-Za-z]+$/;
 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
-/* Message character counter */
+/* Message character counter - Provide live feedback to the user as they type the message */
 message.addEventListener('input', function(){
 
     let counter = this.value.length;
@@ -31,6 +31,7 @@ form.addEventListener('submit', function(event){
     const success = document.getElementById('successMessage');
     const noSuccess = document.getElementById('noSuccessMessage');
 
+    // Validate all inputs before showing success or error messages
     validateName();
     validateEmail();
     validateSubject();
@@ -153,7 +154,7 @@ function clearError(id, string){
     const errorMessage = document.getElementById(`${id}-error`);
     errorMessage.classList.remove('visible');
     
-    // Remove text when faded out
+    // Remove text when faded out (CSS transition)
     setTimeout(() => {
         errorMessage.innerText = string;
     }, 300); 
