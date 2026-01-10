@@ -6,6 +6,9 @@ form .header{
     text-align: center;
     margin-bottom: 20px;
 }
+form p{
+    margin-top: 0;
+}
 input{
     box-sizing: border-box;
 }
@@ -28,23 +31,27 @@ input[type=submit]{
 }
 
 input.invalid, 
-textarea.invalid{
+textarea.invalid,
+select.invalid{
     border-color: #dc3545;
 }
 
 input.valid, 
-textarea.valid {
+textarea.valid,
+select.valid {
     border-color: green;
 }
 
 input, 
-textarea {
+textarea,
+select {
     border: 2px solid #ccc;
     outline: none;
 }
 
 input:focus, 
-textarea:focus {
+textarea:focus,
+select:focus {
     border-color: blue;
 }
 
@@ -54,7 +61,7 @@ textarea:focus {
 }
 .errorMessage,
 #noSuccessMessage{
-    font-size: smaller;
+    font-size: 0.875rem;
     color: #dc3545;
     transition: 1s all ease-in-out;
 }
@@ -64,6 +71,7 @@ textarea:focus {
 
 /* Character counter message field */
 .text-color{
+    font-size: 0.875rem;
     color: #dc3545;
     opacity: 1;
 } 
