@@ -24,6 +24,9 @@ message.addEventListener('input', function(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
 
+    const success = document.getElementById('successMessage');
+    const noSuccess = document.getElementById('noSuccessMessage');
+
     validateName();
     validateEmail();
     validateSubject();
@@ -31,20 +34,22 @@ form.addEventListener('submit', function(event){
 
     if(validateName() && validateEmail() && validateSubject() && validateMessage()){
 
-        document.getElementById('noSuccessMessage').innerText = '';
+        noSuccess.innerText = '';
+        noSuccess.classList.remove('visible');
 
         // Success message
-        document.getElementById('successMessage').innerText = `Thank you ${firstName.value}! I will contact you soon!`;
-
+        success.innerText = `Thank you ${firstName.value}! I will contact you soon!`;
+        
         /* Make success message dissapear */
         setTimeout(function(){
-            document.getElementById('successMessage').innerText = '';
+            success.innerText = '';
         }, 3000); 
 
         clearForm();
 
     } else {
-        document.getElementById('noSuccessMessage').innerText = 'Check all fields';
+        noSuccess.classList.add('visible');
+        noSuccess.innerText = 'Check all fields';
     }
 });
 
@@ -143,9 +148,14 @@ function showError(id, string){ // String set in validation functions
 }
 
 function clearError(id, string){ // String set in validation functions
-    const errorMessage = document.getElementById(`${id}-error`)
+    const errorMessage = document.getElementById(`${id}-error`);
     errorMessage.classList.remove('visible');
-    errorMessage.innerText = string;
+    
+    // remove text after fade-out
+    setTimeout(() => {
+        errorMessage.innerText = string;
+    }, 300); 
+
 }
 
 function clearForm(){

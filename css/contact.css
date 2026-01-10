@@ -1,3 +1,6 @@
+:root {
+    --red: #dc3545;
+  }
 /* *** FORM *** */
 form{
     text-align: left;
@@ -33,7 +36,7 @@ input[type=submit]{
 input.invalid, 
 textarea.invalid,
 select.invalid{
-    border-color: #dc3545;
+    border-color:  var(--red);;
 }
 
 input.valid, 
@@ -56,23 +59,34 @@ select:focus {
 }
 
 /* Error messages */
-.errorMessage{
-    opacity: 0;
-}
 .errorMessage,
 #noSuccessMessage{
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.3s ease-in-out,
+        visibility 0s linear 0.3s;
     font-size: 0.875rem;
-    color: #dc3545;
-    transition: 1s all ease-in-out;
+    color: var(--red);
 }
-.errorMessage.visible{
+.errorMessage.visible,
+#noSuccessMessage.visible{
     opacity: 1;
+    visibility: visible;
+    transition:
+        opacity 0.3s ease-in-out,
+        visibility 0s linear 0s;
+}
+
+#noSuccessMessage,
+#successMessage{
+    text-align: center;
 }
 
 /* Character counter message field */
 .text-color{
     font-size: 0.875rem;
-    color: #dc3545;
+    color:  var(--red);
     opacity: 1;
 } 
 
