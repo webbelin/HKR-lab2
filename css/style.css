@@ -49,6 +49,9 @@ a:focus{border: 2px solid var(--green);}
 .align-center{
     text-align: center;
 }
+.no-break{
+    white-space: nowrap;
+}
 
 /* *** HEADER *** */
 header{

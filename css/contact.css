@@ -12,11 +12,10 @@ form .header{
 form p{
     margin-top: 0;
 }
-input{
-    box-sizing: border-box;
-}
-input{
+input,
+textarea{
     width: 100%;
+    box-sizing: border-box;
     margin: 5px 0;
     padding: 2%;
 }
