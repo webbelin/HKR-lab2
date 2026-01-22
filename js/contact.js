@@ -18,7 +18,7 @@ message.addEventListener('input', function(){
     counterText.textContent = counter + ' / 20 characters';
     counterText.classList.remove('color-change');
 
-    if(counter >= 20){
+    if(counter >= 20 && counter <= 40){
         counterText.classList.add('color-change');
     }
 });
